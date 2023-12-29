@@ -7,7 +7,8 @@
         "build": "next build",
         "start": "next start",
         "lint": "eslint . --max-warnings 0",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\""
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "deploy": "docker build -t crawl -f . ../../ && docker run -d -p 3000:3000 crawl"
     },
     "dependencies": {
         "@repo/ui": "workspace:*",
