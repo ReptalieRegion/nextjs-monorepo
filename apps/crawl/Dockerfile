@@ -41,7 +41,7 @@ RUN chown nextjs:nodejs .next
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=installer --chown=nextjs:nodejs /app/apps/crawl/.next/standalone ./
-COPY --from=installer --chown=nextjs:nodejs /app/apps/crawl/.next/static ./.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/apps/crawl/.next/static ./apps/crawl/.next/static
 
 WORKDIR /app/apps/crawl
 
