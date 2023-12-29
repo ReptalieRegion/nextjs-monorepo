@@ -2,7 +2,7 @@
 
 import { Metadata } from 'next';
 import { getPageTitle } from 'notion-utils';
-import 'react-notion-x/src/styles.css';
+
 import NotionRenderPage from '../../../components/NotionPage/NotionRenderPage';
 import { getNotionPage } from '../../actions/getNotionPage';
 
