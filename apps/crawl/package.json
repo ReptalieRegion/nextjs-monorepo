@@ -7,15 +7,20 @@
         "build": "next build",
         "start": "next start",
         "lint": "eslint . --max-warnings 0",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\""
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "deploy": "pnpm build && gcloud app deploy"
     },
     "dependencies": {
         "@repo/ui": "workspace:*",
         "next": "^14.0.3",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "notion-client": "^6.16.0",
+        "notion-utils": "^6.16.0",
+        "react-notion-x": "^6.16.0"
     },
     "devDependencies": {
+        "notion-types": "^6.16.0",
         "@next/eslint-plugin-next": "^14.0.2",
         "@repo/eslint-config": "workspace:*",
         "@repo/typescript-config": "workspace:*",
@@ -25,6 +30,5 @@
         "@types/react-dom": "^18.0.7",
         "eslint": "^8.53.0",
         "typescript": "^5.2.2"
-    },
-    "type": "module"
+    }
 }
