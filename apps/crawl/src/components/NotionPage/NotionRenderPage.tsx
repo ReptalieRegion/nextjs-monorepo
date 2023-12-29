@@ -3,7 +3,9 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
+import router from 'next/router';
 import type { ExtendedRecordMap } from 'notion-types';
+import { useEffect, useRef } from 'react';
 import { NotionRenderer } from 'react-notion-x';
 import 'react-notion-x/src/styles.css';
 import './styles.css';
@@ -19,6 +21,20 @@ type NotionPageProps = {
 };
 
 export default function NotionRenderPage({ recordMap }: NotionPageProps) {
+    const alternator = useRef<number>(0);
+    // Scroll slightly and alternate between pages to always invalidate image snapshot.
+    // See {redacted} for explanation on this effect and the previous
+    useEffect(() => {
+        const slightScroll = () => {
+            window.scrollTo({ left: 0, top: alternator.current });
+            alternator.current = Number(!alternator.current);
+        };
+
+        router.events.on('routeChangeComplete', slightScroll);
+
+        return () => router.events.off('routeChangeComplete', slightScroll);
+    }, []);
+
     return (
         <NotionRenderer
             recordMap={recordMap}

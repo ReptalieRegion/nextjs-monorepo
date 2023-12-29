@@ -6,11 +6,14 @@ import comment from '../../../../public/images/comment.png';
 import community from '../../../../public/images/community.png';
 import diary from '../../../../public/images/diary.png';
 import googlePlay from '../../../../public/images/googleplay.png';
+import mainLogo from '../../../../public/images/main.jpg';
+import SecondSection from './components/SecondSection';
 
 export default function Homepage() {
     return (
-        <main>
-            <section className="first-section__image">
+        <>
+            <section className="first-section">
+                <Image src={mainLogo} alt="logo" className="first-section__image" fill />
                 <div className="first-section__content">
                     <h1 className="first-section__font">
                         희귀동물 관리를
@@ -58,15 +61,7 @@ export default function Homepage() {
                     </div>
                 </a>
             </section>
-            <section id="second-section" className="second-section">
-                <p className="second-section-font">
-                    내 희귀동물들을 한눈에 모아보고 한 곳에서 관리하세요.
-                    <br />
-                    쉽고 간편하게 다이어리를 관리하고 일상을 공유,
-                    <br />
-                    크롤과 함께해요
-                </p>
-            </section>
+            <SecondSection />
             <section className="third-section">
                 <div id="third-section-content" className="section__wrapper">
                     <div className="section-text__wrapper">
@@ -108,6 +103,6 @@ export default function Homepage() {
                     </div>
                 </div>
             </section>
-        </main>
+        </>
     );
 }
