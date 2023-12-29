@@ -30,7 +30,8 @@ export default function NotionRenderPage({ recordMap }: NotionPageProps) {
                 Equation,
                 Modal,
                 Pdf,
-                Link: Link,
+                Link: (props: any) => <Link {...props} href={`/notion/${props.href}`} />,
+                PageLink: (props: any) => <Link {...props} href={`/notion/${props.href}`} />,
                 Image: Image,
             }}
         />
