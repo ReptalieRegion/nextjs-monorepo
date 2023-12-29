@@ -1,10 +1,10 @@
 'use server';
 
-import { getNotionPage } from '@/app/actions/getNotionPage';
-import NotionRenderPage from '@/components/NotionPage/NotionRenderPage';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import { getPageTitle } from 'notion-utils';
 import 'react-notion-x/src/styles.css';
+import NotionRenderPage from '../../../components/NotionPage/NotionRenderPage';
+import { getNotionPage } from '../../actions/getNotionPage';
 
 type NotionPageProps = {
     params: {
@@ -12,7 +12,7 @@ type NotionPageProps = {
     };
 };
 
-export async function generateMetadata({ params: { pageId } }: NotionPageProps, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params: { pageId } }: NotionPageProps): Promise<Metadata> {
     const recordMap = await getNotionPage(pageId);
     const title = getPageTitle(recordMap);
 

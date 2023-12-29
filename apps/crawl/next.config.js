@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+    output: 'standalone',
     transpilePackages: ['@repo/ui'],
     webpack: (config) => {
         // 기존 URL 파일로더 규칙을 가져옵니다.

@@ -1,4 +1,4 @@
-import { TermsData } from '@/components/Terms/types';
+import { TermsData } from '../../../components/Terms/types';
 
 export const data: TermsData[] = [
     {
