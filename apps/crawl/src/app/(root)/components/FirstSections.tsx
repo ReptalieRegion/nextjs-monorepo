@@ -2,9 +2,9 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import appleKorea from '../../../../../public/images/applekorea.png';
-import googlePlay from '../../../../../public/images/googleplay.png';
-import mainLogo from '../../../../../public/images/main.jpg';
+import appleKorea from '../../../../public/images/applekorea.png';
+import googlePlay from '../../../../public/images/googleplay.png';
+import mainLogo from '../../../../public/images/main.jpg';
 
 
 export default function FirstSections() {

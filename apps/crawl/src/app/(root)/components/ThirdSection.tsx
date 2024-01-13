@@ -1,12 +1,11 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
+import comment from '../../../../public/images/comment.png';
+import community from '../../../../public/images/community.png';
 
-import diary from '../../../../../public/images/diary.png';
-import entity from '../../../../../public/images/entity.png';
-
-export default function FourthSection() {
-    const sectionRef = useRef<HTMLDivElement>(null);
+export default function ThirdSection() {
+    const thirdSectionRef = useRef<HTMLDivElement>(null);
     const imageWrapperRef = useRef<HTMLDivElement>(null);
     const [contentClassName, setSectionClassName] = useState('section__wrapper')
     const [rightImageClassName, setRightImageClassName] = useState("third-section__right_image");
@@ -14,7 +13,7 @@ export default function FourthSection() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const targetElement = sectionRef.current;
+            const targetElement = thirdSectionRef.current;
 
             if (targetElement) {
                 const elementRect = targetElement.getBoundingClientRect();
@@ -58,18 +57,24 @@ export default function FourthSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="third-section">
+        <section ref={thirdSectionRef} className="third-section">
             <div id="third-section-content" className={contentClassName}>
                 <div className="section-text__wrapper">
-                <h1 id="fourth-h1" className="section-h1-font">다이어리</h1>
-                <h2 className="section-h2-font">나의 희귀동물,<br/>쉽게 관리하고<br/>메모 해요</h2>
+                    <h1 className="section-h1-font">일상 공유</h1>
+                    <h2 className="section-h2-font">
+                        나의 하루,
+                        <br />
+                        주변 사람들과
+                        <br />
+                        일상을 공유 해요
+                    </h2>
                 </div>
                 <div ref={imageWrapperRef} id="third-section-image" className="third-section__image_wrapper">
                     <div id="third-section-right-image" className={rightImageClassName}>
-                        <Image src={entity} alt="댓글 이미지" id="right-image" className="third-section__image" fill />
+                        <Image src={comment} alt="댓글 이미지" id="right-image" className="third-section__image" fill />
                     </div>
                     <div id="third-section-left-image" className={leftImageClassName}>
-                        <Image src={diary} alt="커뮤니티 이미지" id="left-image" className="third-section__image" fill />
+                        <Image src={community} alt="커뮤니티 이미지" id="left-image" className="third-section__image" fill />
                     </div>
                 </div>
             </div>

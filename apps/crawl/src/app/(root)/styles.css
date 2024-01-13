@@ -431,7 +431,7 @@ main {
 }
 
 .p-logo:before {
-    content: url('../../../../public/images/logo.png');
+    content: url('../../../public/images/logo.png');
     vertical-align: middle;
 }
 
