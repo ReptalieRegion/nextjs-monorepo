@@ -423,16 +423,18 @@ main {
     background-color: var(--blue-gray-500);
 }
 
+.p-logo_wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    height: 84px;
+}
+
 .p-logo {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 30px;
     color: var(--brand-primary);
     font-weight: 600;
-}
-
-.p-logo:before {
-    content: url('../../../public/images/logo.png');
-    vertical-align: middle;
 }
 
 .p-footer__inner {

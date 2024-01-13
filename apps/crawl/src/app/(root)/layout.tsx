@@ -1,7 +1,9 @@
 'use server';
 
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { PropsWithChildren } from 'react';
+import logo from '../../../public/images/logo.png';
 import './styles.css';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,7 +28,16 @@ export default async function Layout({ children }: PropsWithChildren) {
             <main>{children}</main>
             <footer className="p-footer">
                 <div className="p-footer__inner">
-                    <address className="p-footer__address"><strong className="p-logo">CRAWL</strong><br/>어플명: CRAWL<br />이름: 박윤찬<br />연락처: 010-4024-3752<br />Copyright 2023, CRAWL, All rights reserved.</address>
+                    <address className="p-footer__address">
+                        <div className='p-logo_wrapper'>
+                            <Image src={logo} alt='로고' />
+                            <strong className="p-logo">CRAWL</strong>
+                        </div>
+                        <br/>어플명: CRAWL
+                        <br />이름: 박윤찬
+                        <br />연락처: 010-4024-3752
+                        <br />Copyright 2023, CRAWL, All rights reserved.
+                    </address>
                 </div>
             </footer>
         </>
