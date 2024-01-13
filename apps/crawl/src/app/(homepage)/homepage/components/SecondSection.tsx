@@ -2,24 +2,39 @@
 import { useEffect, useRef } from 'react';
 
 export default function SecondSection() {
-    const secondSectionRef = useRef<HTMLParagraphElement>(null);
+    const targetElementRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (secondSectionRef.current) {
-            const observer = new IntersectionObserver(([e]) => {
-                if (e?.isIntersecting) {
-                    console.log('hi');
+        const handleScroll = () => {
+            const targetElement = targetElementRef.current;
+
+            if (targetElement) {
+                const elementRect = targetElement?.getBoundingClientRect();
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+                const isOverScroll = elementRect.top < scrollTop;
+
+                if (isOverScroll) {
+                    const header = document.getElementById('header');
+                    header?.classList.add('p-header__dark', 'p-header__border');
                 } else {
-                    console.log();
+                    const header = document.getElementById('header');
+                    header?.classList.remove('p-header__dark', 'p-header__border');
                 }
-            });
-            observer.observe(secondSectionRef.current);
-        }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+    
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     return (
         <section id="second-section" className="second-section">
-            <p ref={secondSectionRef} className="second-section-font">
+            <p ref={targetElementRef} className="second-section-font">
                 내 희귀동물들을 한눈에 모아보고 한 곳에서 관리하세요.
                 <br />
                 쉽고 간편하게 다이어리를 관리하고 일상을 공유,

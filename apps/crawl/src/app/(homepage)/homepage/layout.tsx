@@ -17,18 +17,16 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Layout({ children }: PropsWithChildren) {
     return (
         <>
+            <header id="header" className="p-header__layout p-header_font">
+                <div className="header-wrapper">
+                    <p>CRAWL</p>
+                    <a className="app_download_btn">앱 다운로드</a>
+                </div>
+            </header>
             <main>{children}</main>
             <footer className="p-footer">
                 <div className="p-footer__inner">
-                    <address className="p-footer__address">
-                        <strong className="p-logo">CRAWL</strong>
-                        <br />
-                        앱: CRAWL | 대표자: OOO
-                        <br />
-                        연락처: 010-0000-0000
-                        <br />
-                        Copyright 2023, CRAWL, All rights reserved.
-                    </address>
+                    <address className="p-footer__address"><strong className="p-logo">CRAWL</strong><br/>어플명: CRAWL<br />이름: 박윤찬<br />연락처: 010-4024-3752<br />Copyright 2023, CRAWL, All rights reserved.</address>
                 </div>
             </footer>
         </>
