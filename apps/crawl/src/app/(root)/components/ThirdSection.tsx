@@ -33,9 +33,7 @@ export default function ThirdSection() {
 
       if (targetElement) {
         const elementRect = targetElement.getBoundingClientRect();
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-        const isOverScroll = elementRect.top < scrollTop;
+        const isOverScroll = elementRect.top < innerHeight;
 
         if (isOverScroll) {
           setSectionClassName(

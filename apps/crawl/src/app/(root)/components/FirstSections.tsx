@@ -23,7 +23,7 @@ export default function FirstSections() {
           <Link
             className="p-button p-button__font p-button__padding p-button__layout"
             aria-disabled="false"
-            href=""
+            href="https://apps.apple.com/kr/app/%ED%81%AC%EB%A1%A4/id6469619957"
             rel="noreferrer noopener"
           >
             <Image

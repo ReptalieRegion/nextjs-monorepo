@@ -10,9 +10,7 @@ export default function SecondSection() {
 
       if (targetElement) {
         const elementRect = targetElement?.getBoundingClientRect();
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-        const isOverScroll = elementRect.top < scrollTop;
+        const isOverScroll = elementRect.top <= 0;
 
         if (isOverScroll) {
           const header = document.getElementById("header");
@@ -32,8 +30,12 @@ export default function SecondSection() {
   }, []);
 
   return (
-    <section id="second-section" className="second-section">
-      <p ref={targetElementRef} className="second-section-font">
+    <section
+      ref={targetElementRef}
+      id="second-section"
+      className="second-section"
+    >
+      <p className="second-section-font">
         내 희귀동물들을 한눈에 모아보고 한 곳에서 관리하세요.
         <br />
         쉽고 간편하게 다이어리를 관리하고 일상을 공유,
