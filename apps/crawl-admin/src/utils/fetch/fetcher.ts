@@ -48,7 +48,8 @@ function Fetcher() {
 
   const _refreshAccessToken = async () => {
     isRefreshing = true;
-    const response = await fetch("/api/auth/refresh", {
+    const publicApiUrl = process.env.NEXT_PUBLIC_API_URL ?? "";
+    const response = await fetch(publicApiUrl + "/api/auth/refresh", {
       method: "POST",
       credentials: "include",
       headers: {
