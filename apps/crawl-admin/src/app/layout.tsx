@@ -1,4 +1,5 @@
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
+import { NextUIProvider } from "@nextui-org/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -18,7 +19,9 @@ export default async function RootLayout({
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <NextUIProvider>
+          <ReactQueryProvider>{children}</ReactQueryProvider>
+        </NextUIProvider>
       </body>
     </html>
   );
