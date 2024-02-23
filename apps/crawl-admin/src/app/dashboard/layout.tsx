@@ -23,16 +23,20 @@ export default function DashboardLayout({
   }, [error, data?.role, router]);
 
   if (error || data?.role === "UNDETERMINED") {
-    return <div></div>;
+    return null;
   }
 
-  return (
-    <div className="flex flex-row w-full h-full relative">
-      <SlideBar headerLabel="크롤" menuItems={slideBarMenu} />
-      <div className="flex-1">
-        <TopBar />
-        <main>{children}</main>
+  if (data?.role === "MASTER" || data?.role === "PROJECT_MANAGER") {
+    return (
+      <div className="flex flex-row w-full h-full relative">
+        <SlideBar headerLabel="크롤" menuItems={slideBarMenu} />
+        <div className="flex-1">
+          <TopBar />
+          <main>{children}</main>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return null;
 }
