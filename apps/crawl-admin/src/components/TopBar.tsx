@@ -21,7 +21,7 @@ export default function TopBar({
   onClickSearchButton,
 }: TopBarProps) {
   return (
-    <div className="bg-white text-white h-16 flex items-center justify-between px-6 sticky top-0">
+    <header className="bg-white text-white h-16 flex items-center justify-between px-6 sticky top-0 shadow-small z-10">
       <div className="flex items-center gap-6">
         <FaHamburger
           size={20}
@@ -46,6 +46,6 @@ export default function TopBar({
           onClick={onClickProfileButton}
         />
       </div>
-    </div>
+    </header>
   );
 }

@@ -1,3 +1,4 @@
+import { StringQueryKey } from "@/types/react-query/key";
 import { FetchMeProfile } from "@/types/server/me";
 import authFetch from "@/utils/fetch/fetcher";
 import { UndefinedInitialDataOptions, useQuery } from "@tanstack/react-query";
@@ -20,16 +21,16 @@ export function useFetchMeProfile(
       FetchMeProfile["Response"],
       Error,
       FetchMeProfile["Response"],
-      readonly string[]
+      StringQueryKey
     >,
     "queryKey" | "queryFn"
-  >,
+  >
 ) {
   return useQuery<
     FetchMeProfile["Response"],
     Error,
     FetchMeProfile["Response"],
-    readonly string[]
+    StringQueryKey
   >({
     queryKey: ["admin_get-admin/profile"],
     queryFn: fetchMeProfile,

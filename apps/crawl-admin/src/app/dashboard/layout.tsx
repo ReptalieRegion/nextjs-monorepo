@@ -1,6 +1,6 @@
 "use client";
-import SlideBar from "@/components/slide-bar/SlideBar";
-import TopBar from "@/components/top-bar/TopBar";
+import SlideBar from "@/components/SlideBar";
+import TopBar from "@/components/TopBar";
 import { useFetchMeProfile } from "@/hooks/queries/useFetchMeProfile";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
@@ -31,7 +31,7 @@ export default function DashboardLayout({
       <SlideBar headerLabel="크롤" menuItems={slideBarMenu} />
       <div className="flex-1">
         <TopBar />
-        {children}
+        <main>{children}</main>
       </div>
     </div>
   );

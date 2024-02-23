@@ -4,8 +4,18 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useState } from "react";
+import { IconType } from "react-icons";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import { MenuItem, SlideBarMenuItems } from "./types";
+
+export type MenuItem = {
+  link: string;
+  label: string;
+};
+
+export type SlideBarMenuItems = MenuItem & {
+  Icon?: IconType;
+  children?: MenuItem[];
+};
 
 type SlideBarState = {
   headerLabel: string;

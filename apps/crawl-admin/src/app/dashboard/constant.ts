@@ -1,4 +1,4 @@
-import { SlideBarMenuItems } from "@/components/slide-bar/types";
+import { SlideBarMenuItems } from "@/components/SlideBar";
 import { FaHome, FaLock, FaShoppingCart, FaUser } from "react-icons/fa";
 
 export const slideBarMenu: SlideBarMenuItems[] = [
