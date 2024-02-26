@@ -1,6 +1,10 @@
 import { VerifyOtpAndIssueToken } from "@/types/server/auth";
 import authFetch from "@/utils/fetch/fetcher";
-import { UseMutationOptions, useMutation } from "@tanstack/react-query";
+import {
+  UseMutationOptions,
+  UseMutationResult,
+  useMutation,
+} from "@tanstack/react-query";
 
 async function verifyOtpAndIssueToken({
   email,
@@ -27,8 +31,13 @@ function useBaseVerifyOtpAndIssueToken<TContext = unknown>(
       TContext
     >,
     "mutationFn"
-  >,
-) {
+  >
+): UseMutationResult<
+  VerifyOtpAndIssueToken["Response"],
+  Error,
+  VerifyOtpAndIssueToken["Request"],
+  TContext
+> {
   return useMutation<
     VerifyOtpAndIssueToken["Response"],
     Error,

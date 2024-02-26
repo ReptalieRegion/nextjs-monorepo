@@ -1,8 +1,11 @@
 import { GenerateOtp } from "@/types/server/auth";
 import authFetch from "@/utils/fetch/fetcher";
 
-import type {} from "@tanstack/react-query";
-import { useMutation, UseMutationOptions } from "@tanstack/react-query";
+import {
+  useMutation,
+  UseMutationOptions,
+  UseMutationResult,
+} from "@tanstack/react-query";
 
 async function login({ email, password }: GenerateOtp["Request"]) {
   const response = await authFetch("/api/auth/generate-otp", {
@@ -27,7 +30,12 @@ function useBaseGenerateOtp<TContext = unknown>(
     >,
     "mutationFn"
   >
-) {
+): UseMutationResult<
+  GenerateOtp["Response"],
+  Error,
+  GenerateOtp["Request"],
+  TContext
+> {
   return useMutation<
     GenerateOtp["Response"],
     Error,

@@ -6,9 +6,13 @@ interface FetcherRequestInit extends Omit<RequestInit, "method" | "body"> {
 
 type FetchInfo = { input: RequestInfo; init: RequestInit };
 
+type Resolve = (value: Response | PromiseLike<Response>) => void;
+
+type Reject = (reason?: unknown) => void;
+
 interface RefreshItem {
-  resolve: (value: Response | PromiseLike<Response>) => void;
-  reject: (reason?: any) => void;
+  resolve: Resolve;
+  reject: Reject;
   input: RequestInfo;
   init?: RequestInit;
 }

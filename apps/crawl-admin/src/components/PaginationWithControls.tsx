@@ -5,9 +5,10 @@ type PaginationWithControlsState = {
   totalPages: number;
   currentPage: number;
 };
-type PaginationWithControlsActions = {
+
+interface PaginationWithControlsActions {
   onPageChange(value: number): void;
-};
+}
 
 export default function PaginationWithControls({
   currentPage,

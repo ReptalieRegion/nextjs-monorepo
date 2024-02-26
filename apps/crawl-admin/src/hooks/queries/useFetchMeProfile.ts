@@ -1,7 +1,11 @@
 import { StringQueryKey } from "@/types/react-query/key";
 import { FetchMeProfile } from "@/types/server/me";
 import authFetch from "@/utils/fetch/fetcher";
-import { UndefinedInitialDataOptions, useQuery } from "@tanstack/react-query";
+import {
+  UndefinedInitialDataOptions,
+  UseQueryResult,
+  useQuery,
+} from "@tanstack/react-query";
 
 async function fetchMeProfile() {
   const response = await authFetch("/api/admin/profile", {
@@ -25,7 +29,7 @@ export function useFetchMeProfile(
     >,
     "queryKey" | "queryFn"
   >
-) {
+): UseQueryResult<FetchMeProfile["Response"], Error> {
   return useQuery<
     FetchMeProfile["Response"],
     Error,

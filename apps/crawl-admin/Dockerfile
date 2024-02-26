@@ -43,8 +43,6 @@ RUN chown nextjs:nodejs .next
 COPY --from=installer --chown=nextjs:nodejs /app/apps/crawl-admin/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/apps/crawl-admin/.next/static ./apps/crawl-admin/.next/static
 
-WORKDIR /app/apps/crawl-admin
-
 USER nextjs
 
 ARG ADMIN_SERVER_END_POINT

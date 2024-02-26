@@ -4,7 +4,11 @@ import { FetchUserList } from "@/types/server/user";
 import HTTPError from "@/utils/error/http-error";
 import authFetch from "@/utils/fetch/fetcher";
 import { objectToQueryString } from "@/utils/parser/query-string";
-import { UndefinedInitialDataOptions, useQuery } from "@tanstack/react-query";
+import {
+  UndefinedInitialDataOptions,
+  UseQueryResult,
+  useQuery,
+} from "@tanstack/react-query";
 
 async function fetchInfiniteUser({
   pageParam,
@@ -29,7 +33,7 @@ export default function useFetchUserList(
     >,
     "queryKey" | "queryFn"
   >
-) {
+): UseQueryResult<FetchUserList["Response"], HTTPError> {
   return useQuery<
     FetchUserList["Response"],
     HTTPError,

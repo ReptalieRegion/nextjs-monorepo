@@ -2,7 +2,11 @@ import { StringQueryKey } from "@/types/react-query/key";
 import { FetchUserTotalCount } from "@/types/server/user";
 import HTTPError from "@/utils/error/http-error";
 import authFetch from "@/utils/fetch/fetcher";
-import { UndefinedInitialDataOptions, useQuery } from "@tanstack/react-query";
+import {
+  UndefinedInitialDataOptions,
+  UseQueryResult,
+  useQuery,
+} from "@tanstack/react-query";
 
 async function fetchUserTotalCount() {
   const response = await authFetch("/api/user/total-count", {
@@ -24,7 +28,7 @@ export default function useFetchUserTotalCount<
     >,
     "queryKey" | "queryFn"
   >
-) {
+): UseQueryResult<TData, HTTPError> {
   return useQuery<
     FetchUserTotalCount["Response"],
     HTTPError,
