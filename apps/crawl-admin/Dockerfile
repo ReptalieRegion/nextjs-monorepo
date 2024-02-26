@@ -22,7 +22,7 @@ RUN pnpm add sharp --filter crawl-admin
 RUN pnpm i --frozen-lockfile
 
 COPY turbo.json turbo.json
-RUN pnpm --filter crawl-admin build
+RUN NEXT_PUBLIC_API_URL=${ADMIN_SERVER_END_POINT} pnpm --filter crawl-admin build
 
 # Production image, copy all the files and run next
 FROM base AS runner
@@ -49,7 +49,6 @@ USER nextjs
 ARG ADMIN_SERVER_END_POINT
 ARG PORT
 
-ENV NEXT_PUBLIC_API_URL ${ADMIN_SERVER_END_POINT}
 ENV PORT ${PORT}
 EXPOSE ${PORT}
 # set hostname to localhost

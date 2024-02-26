@@ -9,7 +9,7 @@
         "admin": "pnpm --filter crawl-admin",
         "crawl": "pnpm --filter crawl",
         "admin:docker:build": "docker build --build-arg ADMIN_SERVER_END_POINT=http://localhost:3333 --build-arg PORT=3333 -t admin-next -f apps/crawl-admin/Dockerfile .",
-        "admin:docker:run": "docker run -d -p 3000:3000 admin-next",
+        "admin:docker:run": "docker run -d -p 3000:3333 admin-next",
         "admin:docker:start": "pnpm admin:docker:build && pnpm admin:docker:run"
     },
     "devDependencies": {
