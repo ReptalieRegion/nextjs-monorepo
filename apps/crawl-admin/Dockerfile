@@ -46,10 +46,11 @@ COPY --from=installer --chown=nextjs:nodejs /app/apps/crawl-admin/.next/static .
 USER nextjs
 
 ARG ADMIN_SERVER_END_POINT
+ARG PORT
 
 ENV NEXT_PUBLIC_API_URL ${ADMIN_SERVER_END_POINT}
-ENV PORT 3000
-EXPOSE 3000
+ENV PORT ${PORT}
+EXPOSE ${PORT}
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 

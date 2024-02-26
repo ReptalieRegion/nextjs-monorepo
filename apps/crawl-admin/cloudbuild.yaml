@@ -5,6 +5,8 @@ steps:
         "build",
         "--build-arg",
         "ADMIN_SERVER_END_POINT",
+        "--build-arg",
+        "PORT=${_PORT}",
         "-t",
         "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/${_IMAGE}:$COMMIT_SHA",
         "-f",
@@ -29,6 +31,8 @@ steps:
         "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/${_IMAGE}:$COMMIT_SHA",
         "--region",
         "${_LOCATION}",
+        "--port",
+        "${_PORT}",
       ]
 availableSecrets:
   secretManager:
