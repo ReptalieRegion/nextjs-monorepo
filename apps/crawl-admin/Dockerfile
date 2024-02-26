@@ -40,7 +40,8 @@ RUN chown nextjs:nodejs .next
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=installer --chown=nextjs:nodejs /app/apps/crawl-admin/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/node_modules ./node_modules
+COPY --from=installer --chown=nextjs:nodejs /app/apps/crawl-admin/.next/standalone ./apps/crawl-admin/
 COPY --from=installer --chown=nextjs:nodejs /app/apps/crawl-admin/.next/static ./apps/crawl-admin/.next/static
 
 USER nextjs
@@ -54,7 +55,7 @@ EXPOSE ${PORT}
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 
-WORKDIR /app/apps/crawl-admin/.next/standalone
+WORKDIR /app/apps/crawl-admin
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
