@@ -11,6 +11,7 @@ steps:
         "apps/crawl-admin/Dockerfile",
         ".",
       ]
+    secretEnv: ["ADMIN_SERVER_END_POINT"]
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
@@ -29,9 +30,9 @@ steps:
         "--region",
         "${_LOCATION}",
       ]
-images:
-  - "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/${_IMAGE}:$COMMIT_SHA"
 availableSecrets:
   secretManager:
     - versionName: projects/${_PROJECT_ID}/secrets/ADMIN_SERVER_END_POINT/versions/latest/
-      env: "ADMIN_SERVER_END_POINT"
+      env: ADMIN_SERVER_END_POINT
+images:
+  - "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/${_IMAGE}:$COMMIT_SHA"
