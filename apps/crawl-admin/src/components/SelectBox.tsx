@@ -21,12 +21,14 @@ export default function SelectBox<TData extends number | string>({
   onChange,
 }: SelectBoxProps<TData>) {
   const [isOpen, openToggle] = useToggle(false);
-  const [selectedOption, setSelectedOption] = useState<TData>(
+  const [selectedOption, setSelectedOption] = useState<TData | undefined>(
     defaultOption ?? options[0]
   );
 
   useEffect(() => {
-    onChange?.(selectedOption);
+    if (selectedOption) {
+      onChange?.(selectedOption);
+    }
   }, [selectedOption]);
 
   const handleOptionClick = (option: TData) => {
