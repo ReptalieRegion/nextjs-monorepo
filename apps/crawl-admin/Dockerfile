@@ -11,6 +11,8 @@ RUN turbo prune crawl-admin --docker
 
 # Rebuild the source code only when needed
 FROM base AS installer
+ARG ADMIN_SERVER_END_POINT
+
 RUN apk add --no-cache libc6-compat
 RUN apk update
 WORKDIR /app
@@ -46,7 +48,7 @@ COPY --from=installer --chown=nextjs:nodejs /app/apps/crawl-admin/.next/static .
 
 USER nextjs
 
-ARG ADMIN_SERVER_END_POINT
+
 ARG PORT
 
 ENV PORT ${PORT}
