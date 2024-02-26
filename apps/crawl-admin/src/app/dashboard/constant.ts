@@ -40,4 +40,4 @@ export const slideBarMenu: SlideBarMenuItems[] = [
       },
     ],
   },
-] as const;
+];

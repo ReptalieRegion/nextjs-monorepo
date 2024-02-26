@@ -6,7 +6,11 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "eslint . --max-warnings 0",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "docker:build": "docker build -t crawl -f . ../../",
+        "docker:run": "docker run -d -p 3000:3000 crawl",
+        "docker:start": "docker:build && docker:run"
     },
     "dependencies": {
         "@tanstack/react-query": "^5.22.2",
