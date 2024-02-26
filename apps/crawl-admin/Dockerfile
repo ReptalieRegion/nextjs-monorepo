@@ -31,7 +31,7 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=installer /app/apps/crawl/public ./public
+COPY --from=installer /app/apps/crawl-admin/public ./public
 
 # Set the correct permission for prerender cache
 RUN mkdir .next
