@@ -36,7 +36,7 @@ export default function FirstSections() {
             App Store
           </Link>
           <Link
-            href=""
+            href="https://play.google.com/store/apps/details?id=com.crawl"
             className="p-button p-button__font p-button__padding p-button__layout"
             aria-disabled="false"
             rel="noreferrer noopener"

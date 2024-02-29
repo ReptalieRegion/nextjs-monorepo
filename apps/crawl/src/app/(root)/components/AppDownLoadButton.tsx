@@ -6,7 +6,7 @@ export default function AppDownLoadButton() {
     <Link
       href={
         isAndroid
-          ? ""
+          ? "https://play.google.com/store/apps/details?id=com.crawl"
           : "https://apps.apple.com/kr/app/%ED%81%AC%EB%A1%A4/id6469619957"
       }
     >

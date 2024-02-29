@@ -9,12 +9,12 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "크롤 - 희귀동물 커뮤니티",
     description:
-      "개코 | 도마뱀 | 뱀 | 거북 | 양서류 | 절지류 등 희귀동물 커뮤니티",
+      "파충류 커뮤니티 어플 | 파충류 커뮤니티 앱 | 파충류 분양 앱 | 파충류 먹이 앱",
     category: "파충류 커뮤니티",
     appLinks: {},
     keywords: [
-      "커뮤니티",
       "파충류",
+      "커뮤니티",
       "거북이",
       "다이어리",
       "희귀동물",
