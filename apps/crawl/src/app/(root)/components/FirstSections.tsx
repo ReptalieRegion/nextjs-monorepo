@@ -6,10 +6,6 @@ import googlePlay from "../../../../public/images/googleplay.png";
 import mainLogo from "../../../../public/images/main.jpg";
 
 export default function FirstSections() {
-  const handleClickGooglePlay = () => {
-    alert("서비스 준비중이예요");
-  };
-
   return (
     <section className="first-section">
       <Image src={mainLogo} alt="logo" className="first-section__image" fill />
@@ -40,7 +36,6 @@ export default function FirstSections() {
             className="p-button p-button__font p-button__padding p-button__layout"
             aria-disabled="false"
             rel="noreferrer noopener"
-            onClick={handleClickGooglePlay}
           >
             <Image
               src={googlePlay}
